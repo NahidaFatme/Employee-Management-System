@@ -1,0 +1,217 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Apr 05, 2022 at 12:16 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `ems`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_login`
+--
+
+CREATE TABLE `admin_login` (
+  `name` varchar(100) NOT NULL,
+  `password` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin_login`
+--
+
+INSERT INTO `admin_login` (`name`, `password`) VALUES
+('Nahida', '123'),
+('Samiya', '255'),
+('admin', '123');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `application`
+--
+
+CREATE TABLE `application` (
+  `number` int(250) NOT NULL,
+  `id` int(200) NOT NULL,
+  `start_date` varchar(50) NOT NULL,
+  `end_date` varchar(50) NOT NULL,
+  `reason` varchar(250) NOT NULL,
+  `status` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `application`
+--
+
+INSERT INTO `application` (`number`, `id`, `start_date`, `end_date`, `reason`, `status`) VALUES
+(1, 0, '5.02.22', '10.02.22', 'I have to go outside the city', 'Declined'),
+(2, 0, '6.02.22', '15.02.22', 'I am very sick', 'Declined'),
+(3, 1001, '03.05.20', '07.05.20', 'Sick Leave', 'Approved'),
+(4, 1001, '5.03.22', '20.03.22', 'Going outside the country', 'Approved'),
+(7, 1001, '20.03.22', '30.03.22', 'Exam in university', 'Declined'),
+(9, 1011, '15.03.22', '20.03.22', 'sick leave', 'Declined'),
+(10, 1011, '02.03.22', '08.03.22', 'Bcs exam', 'Approved'),
+(14, 1011, '07.03.22', '10.03.22', 'Going outside country', 'Declined'),
+(19, 1020, '16.05.22', '20.05.22', 'exam', ''),
+(20, 1020, '16.02.22', '16.02.22', 'exam', 'Declined'),
+(21, 1001, '15.02.22', '17.02.22', 'BCS exam', 'Approved');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee`
+--
+
+CREATE TABLE `employee` (
+  `name` varchar(100) NOT NULL,
+  `id` int(100) NOT NULL,
+  `department` varchar(100) NOT NULL,
+  `number` int(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `position` varchar(100) NOT NULL,
+  `jdate` varchar(100) NOT NULL,
+  `dob` varchar(100) NOT NULL,
+  `addr` varchar(100) NOT NULL,
+  `blood_group` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`name`, `id`, `department`, `number`, `email`, `position`, `jdate`, `dob`, `addr`, `blood_group`) VALUES
+('Nahida', 1001, 'IT', 123456, 'nahida@gmail.com', 'Head of Department', '6.11.19', '16.05.02', 'Dhaka', 'A+'),
+('Jovan', 1004, 'HR', 874544, 'jovan@yahoo.com', 'Executive', '3.05.18', '14.09.94', 'Dhaka', 'AB+'),
+('Emon', 1005, 'HR', 8741132, 'emon@yahoo.com', 'Executive', '28.07.18', '22.09.99', 'Dhaka', 'AB+'),
+('Sadia', 1006, 'IT', 98452, 'sadia@yahoo.com', 'Senior Executive', '28.07.18', '22.09.99', 'Dhaka', 'O+'),
+('Akash', 1007, 'Sales', 998956, 'akash@yahoo.com', 'Senior Executive', '28.07.19', '22.09.97', 'Dhaka', 'O+'),
+('Hridoy', 1008, 'Marketing', 4976566, 'hridoy@yahoo.com', 'Manager', '28.07.15', '22.09.97', 'Dhaka', 'O-'),
+('Abir', 1009, 'Creative', 65484135, 'abir@gmail.com', 'General Manager', '28.07.20', '22.09.94', 'Dhaka', 'A+'),
+('Akib', 1003, 'Sales', 45685, 'akib@yahoo.com', 'Intern', '3.02.21', '9.12.96', 'Chadpur', 'A+'),
+('Samiya', 1002, 'HR', 23654, 'samiya@gmail.com', 'Intern', '3.02.21', '27.07.99', 'Pabna', 'A+');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `salary`
+--
+
+CREATE TABLE `salary` (
+  `Number` int(200) NOT NULL,
+  `id` int(100) NOT NULL,
+  `year` varchar(20) NOT NULL,
+  `month` varchar(30) NOT NULL,
+  `salary` mediumtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `salary`
+--
+
+INSERT INTO `salary` (`Number`, `id`, `year`, `month`, `salary`) VALUES
+(1, 1001, '2019', 'November', '101000'),
+(2, 1001, '2019', 'December', '101000'),
+(5, 1001, '2020', 'January', '120000'),
+(6, 1001, '2020', 'February', '102000'),
+(7, 1001, '2020', 'March', '102000'),
+(9, 1002, '2021', 'February', '20000'),
+(10, 1002, '2020', 'March', '20000'),
+(11, 1002, '2020', 'April', '20000'),
+(12, 1002, '2020', 'May', '15000'),
+(13, 1003, '2021', 'February', '15000'),
+(14, 1003, '2021', 'March', '20000'),
+(15, 1003, '2021', 'April', '25000'),
+(16, 1004, '2018', 'May', '20000'),
+(17, 1004, '2018', 'June', '20000'),
+(18, 1004, '2018', 'July', '20000'),
+(19, 1005, '2018', 'July', '40000'),
+(20, 1005, '2018', 'August', '40000'),
+(21, 1005, '2019', 'aPRIL', '40000'),
+(22, 1002, '2020', 'June', '30000'),
+(23, 1002, '2020', 'July', '29000'),
+(26, 1001, '2022', 'June', '101000'),
+(27, 1001, '2020', 'April', '102000'),
+(28, 1022, '2020', 'june', '787'),
+(29, 1011, '2022', 'February', '20000'),
+(30, 1011, '2022', 'March', '20000'),
+(31, 1011, '2022', 'April', '20000'),
+(32, 1011, '2022', 'May', '20000'),
+(33, 1011, '2022', 'June', '25000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_login`
+--
+
+CREATE TABLE `user_login` (
+  `id` int(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `phone` int(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user_login`
+--
+
+INSERT INTO `user_login` (`id`, `name`, `phone`, `password`) VALUES
+(1002, 'Samiya', 0, '255'),
+(1003, 'Akib', 0, '666'),
+(1004, 'jovan', 874544, '444'),
+(1020, 'Safi', 2222, '333'),
+(1011, 'Rafsan', 2165486, '111');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `application`
+--
+ALTER TABLE `application`
+  ADD PRIMARY KEY (`number`);
+
+--
+-- Indexes for table `salary`
+--
+ALTER TABLE `salary`
+  ADD PRIMARY KEY (`Number`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `application`
+--
+ALTER TABLE `application`
+  MODIFY `number` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `salary`
+--
+ALTER TABLE `salary`
+  MODIFY `Number` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
